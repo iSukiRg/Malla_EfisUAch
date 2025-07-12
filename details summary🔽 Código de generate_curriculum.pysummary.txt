@@ -1,0 +1,101 @@
+import os
+import yaml
+
+curriculum = {
+    "semestres": [
+        {"nombre": "Primer Semestre", "cursos": [
+            "Fundamentos de las Manifestaciones de la Motricidad Humana",
+            "Fundamentos Biológicos",
+            "Acondicionamiento Orgánico",
+            "Educación, Cultura y Naturaleza",
+            "Lectura Comprensiva y Expresión Escrita",
+            "Tecnología de la Información y la Comunicación",
+            "Comunicación en Lengua Inglesa I",
+            "Introducción a las Ciencias Sociales"
+        ]},
+        {"nombre": "Segundo Semestre", "cursos": [
+            "Juegos Pre Deportivos",
+            "Introducción a la Educación Física",
+            {"nombre": "Anatomía", "prerrequisitos": ["Fundamentos Biológicos"]},
+            "Aprendizaje y Sistemas de Conocimiento",
+            "Ética, Relacionalidad y Desarrollo Humano",
+            "Sociedad y Modernidad",
+            {"nombre": "Comunicación en Lengua Inglesa II", "prerrequisitos": ["Comunicación en Lengua Inglesa I"]},
+            "Fundamentos de la Comunicación Humana",
+            "Taller de Formación Situada: Vivencial"
+        ]},
+        {"nombre": "Tercer Semestre", "cursos": [
+            "Gimnasia Artística y Rítmica",
+            "Expresión Corporal y Danza Educativa",
+            "Aprendizaje, Cognición y Diversidad",
+            "Currículum, Democracia y Transformación Social",
+            "Sociedad y Cultura",
+            "Taller de Formación Situada: Contextualización y Agenciamiento",
+            "Optativo de Formación General I"
+        ]},
+        {"nombre": "Cuarto Semestre", "cursos": [
+            "Natación",
+            "Bases Actividades en la Naturaleza",
+            "Kayak",
+            "Fisiología y Bioenergética",
+            "Gestión y Proyectos Educativos",
+            "Educación Inclusiva",
+            "Creatividad, Innovación y Proyectos",
+            "Optativo de Formación General II"
+        ]},
+        {"nombre": "Quinto Semestre", "cursos": [
+            "Deportes Colectivos: Handbol, Voleibol y Básquetbol",
+            "Habilidades Aguas Abiertas y Salvamento",
+            "Danza Recreativa y Contemporánea",
+            "Mediaciones TIC y Ambientes de Aprendizaje",
+            "Motrocidad Adaptada e Inclusiva",
+            "Optativo de Especialización I"
+        ]},
+        {"nombre": "Sexto Semestre", "cursos": [
+            "Atletismo",
+            "Remo",
+            "Biomecánica",
+            "Evaluación de Aprendizajes",
+            "Rodados y Sustentabilidad Urbana",
+            "Recreación y Animación",
+            "Taller de Formación Situada: Atención a la Diversidad",
+            "Optativo de Especialización II"
+        ]},
+        {"nombre": "Séptimo Semestre", "cursos": [
+            "Deportes Colectivos: Fútbol y Rugby",
+            "Navegación a Vela",
+            "Nutrición y Alimentación",
+            "Teoría del Entrenamiento",
+            "Gerontomotricidad",
+            "Metodología de la Investigación Educativa",
+            "Gestión y Proyectos de Eventos Deportivos",
+            "Optativos de Especialización III"
+        ]},
+        {"nombre": "Octavo Semestre", "cursos": [
+            "Bicicleta y Montañismo",
+            "Métodos y Técnicas de Circo",
+            "Fisiología del Ejercicio",
+            "Riesgos del Ejercicio y Primeros Auxilios",
+            "Motricidad Infantil",
+            "Didáctica Disciplinar",
+            "Taller de Formación Situada: Acompañamiento Reflexión-Crítica"
+        ]},
+        {"nombre": "Noveno Semestre", "cursos": [
+            "Danzas y Juegos Tradicionales",
+            "Motricidad y Salud",
+            "Seminario de Título",
+            "Taller de Formación Situada: Desarrollo Profesional y Aprendizaje Servicio",
+            "Optativo de Profundización"
+        ]},
+        {"nombre": "Décimo Semestre", "cursos": [
+            "Práctica Profesional",
+            "Optativo de Profundización I"
+        ]}
+    ]
+}
+
+os.makedirs("output", exist_ok=True)
+with open("output/curriculum.yaml", "w", encoding="utf-8") as f:
+    yaml.dump(curriculum, f, allow_unicode=True)
+
+print("✅ Malla guardada en output/curriculum.yaml")

@@ -1,0 +1,22 @@
+name: Generar Malla Curricular
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Instalar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+    - name: Ejecutar script
+      run: |
+        pip install pyyaml
+        python generate_curriculum.py
+    - name: Subir archivo generado
+      uses: actions/upload-artifact@v3
+      with:
+        name: Malla Curricular
+        path: output/curriculum.yaml
